@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         } 
+         body {
+            background-color: white;
+            overflow: hidden;  /* Removes scrollbars */
+         }
+          /* TITLE */
+
+        /* Fixed header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 81, 0, 0.315); /* Optional background */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.671);
+            z-index: 1000;
+            font-style: italic;
+        }
+
+        /* Double color text */
+        .double-color-text {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(to right, rgba(0, 102, 128, 0.514), blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .logout {
+            float: right;
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            padding: 12px 30px;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            transition: 0.3s;
+        }
+
+        .logout:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        .form-container {
+            display: flex;
+            color: black;
+            margin-top: 50px;
+        }
+
+        .login-form {
+            background-color: rgba(255, 81, 0, 0.315);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 60px;
+            width: 500px;
+            margin-left: 450px;
+        }
+
+        .login-form .form-header {
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin: 0; /* Reset default margin */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            width: 100%;
+            float: center;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            padding: 12px 30px;            
+            background: linear-gradient(to right, #ff5733, #3498db);
+            transition: 0.3s;
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .password-input input {
+            width: calc(100% - 52px);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #role {
+            width: 95%;  /* Full width of the form-group container */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .create-account {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .create-account :hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+          <!-- Fixed Heading -->
+          <div class="header">
+            <h1 class="double-color-text">AI DRIVEN CENTRALIZED DASHBOARD</h1>
+            <button class="logout"><a href="#">Logout</a></button>
+          </div>
+
+        <form>
+            <div class="form-container">
+              <div class="login-form">
+                <div class="form-header">
+                  <h2><U><B>Registeration Form</B></U></h2>
+                </div>
+                <div class="form-group">
+                  <label for="username">User Name</label>
+                  <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <select id="role">
+                    <option value="select" aria-required="true">SELECT</option>
+                  </select>
+                </div>
+                <div class="form-group password-input">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" required>
+                  <span class="password-toggle" onclick="togglePassword(this)">👁️</span>
+                </div>
+                <div class="form-group">
+                  <label for="contact">Contact</label>
+                  <input type="number" id="contact" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit" required><a href="#">Create account</a></button>
+                </div>
+                
+              </div>
+            </div>
+        </form>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-DCD</title>
+    <style>
+        * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         } 
+         body {
+            background-color: white;
+            overflow: hidden;
+         }
+
+        /* Fixed header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 81, 0, 0.315);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.671);
+            z-index: 1000;
+            font-style: italic;
+            
+        }
+
+        .double-color-text {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(to right, rgba(0, 102, 128, 0.514), blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Slogan */
+        .slogan {
+            font-size: 30px;
+            font-weight: bold;
+            font-style: italic;
+            background: linear-gradient(to right, red, black);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: underline;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            margin-left: 80px;
+            transform: translateY(-50%) translateX(100%);
+            animation: floatText 15s linear infinite;
+        }
+
+        @keyframes floatText {
+            0% {
+                transform: translateY(-50%) translateX(100%);
+            }
+            100% {
+                transform: translateY(-50%) translateX(-100%);
+            }
+        }
+
+        /* Login Button Style */
+        .login-btn {
+            position: fixed;
+            margin-top: 450px;
+            margin-left: 600px;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 22px 48px;
+            border: none;
+            border-radius: 35px;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .double-color-text {
+                font-size: 50px;
+            }
+
+            .slogan {
+                font-size: 40px;
+                margin-left: 50px;
+            }
+
+            .login-btn {
+                margin-top: 400px;
+                margin-left: 500px;
+                font-size: 22px;
+                padding: 18px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 0;
+            }
+
+            .double-color-text {
+                font-size: 40px;
+            }
+
+            .slogan {
+                font-size: 30px;
+                margin-left: 30px;
+            }
+
+            .login-btn {
+                margin-top: 350px;
+                margin-left: 350px;
+                font-size: 20px;
+                padding: 15px 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 0;
+            }
+
+            .double-color-text {
+                font-size: 30px;
+            }
+
+            .slogan {
+                font-size: 25px;
+                margin-left: 20px;
+                transform: translateY(-50%) translateX(100%);
+            }
+
+            .login-btn {
+                margin-top: 300px;
+                margin-left: 200px;
+                font-size: 18px;
+                padding: 12px 30px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Fixed Heading -->
+    <div class="header">
+        <h1 class="double-color-text">AI DRIVEN CENTRALIZED DASHBOARD</h1>
+    </div>
+    
+    <!-- Slogan -->
+    <p class="slogan">"The Power of AI, The Simplicity of One Dashboard."</p>
+
+    <!-- Login Button -->
+    <button class="login-btn">
+        <a href="login.html" style="text-decoration: none; color: white;">Login</a>
+    </button>
+</body>
+</html>

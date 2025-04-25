@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERVISOR LOGIN</title>
+    
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: white;
+        overflow: hidden;  /* Removes scrollbars */
+    }
+
+    /* TITLE */
+
+    /* Fixed header */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 81, 0, 0.315); /* Optional background */
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.671);
+        z-index: 1000;
+        font-style: italic;
+    }
+
+    /* Double color text */
+    .double-color-text {
+        font-size: 60px;
+        font-weight: bold;
+        background: linear-gradient(to right, rgba(0, 102, 128, 0.514), blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .logout {
+        float: right;
+        background-color: white;
+        border: 1px solid black;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        padding: 12px 30px;
+        background: linear-gradient(to right, #ff5733, #3498db);
+        transition: 0.3s;
+    }
+
+    .logout:hover {
+        background: linear-gradient(to right, #3498db, #ff5733);
+    }
+
+    .login {
+        float: right;
+        background-color: white;
+        border: 1px solid black;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        padding: 12px 30px;
+        background: linear-gradient(to right, #ff5733, #3498db);
+        transition: 0.3s;
+    }
+
+    .login:hover {
+        background: linear-gradient(to right, #3498db, #ff5733);
+    }
+
+    .main {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .container {
+        width: 40%;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0px 2px 15px -4px #7e7c7c;
+        border-radius: 5px;
+        animation: container 1.5s ease;
+        margin-top: 150px;
+        background-color: rgba(255, 81, 0, 0.315);
+    }
+
+    /* image scroll */
+    @keyframes container {
+        0% {
+            margin-left: -100%;
+        }
+        100% {
+            top: 0;
+        }
+    }
+
+    .container .image {
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    /* side triangle */
+    .container .image::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #f0f6ff;
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    }
+
+    .container .form-area {
+        display: flex;
+        width: 150%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: form 1.8s ease;
+    }
+
+    /* full name & email next line */
+    .container .form-area form {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    /* full name & email */
+    .container .form-area form input {
+        padding: 15px 5px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        outline: none;
+    }
+
+    .container .form-area form input::placeholder {
+        color: #999;
+        letter-spacing: 1px;
+    }
+
+    .container .form-area form input:hover::placeholder,
+    .container .form-area form textarea:hover::placeholder {
+        padding-left: 10px;
+        transition: .3s all ease-in-out;
+    }
+
+    /* send message */
+    .container .form-area form button {
+        margin-top: 10px;
+        border: none;
+        padding: 10px 0px;
+        border-radius: 30px;
+        background-color: #62c3fc;
+        color: #fff;
+        font-size: 17px;
+        cursor: pointer;
+        transition: .3s all ease-in-out;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .container {
+            width: 70%;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .container .image {
+            display: none;
+        }
+
+        .container .form-area {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .container .form-area form {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .double-color-text {
+            font-size: 40px;
+        }
+
+        .logout {
+            font-size: 14px;
+            padding: 8px 20px;
+            margin-right: 10px;
+        }
+
+        .container {
+            width: 90%;
+        }
+
+        .container .form-area form {
+            width: 90%;
+        }
+
+        .container .form-area form input,
+        .container .form-area form button {
+            font-size: 14px;
+            padding: 12px;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+    <!-- Fixed Heading -->
+    <div class="header">
+        <h1 class="double-color-text">AI DRIVEN CENTRALIZED DASHBOARD</h1>
+        <button class="logout"><a href="login.html">Logout</a></button>
+    </div>
+
+    <div class="main">
+        <div class="container">
+
+            <div class="form-area">
+                <h2>SUPERVISOR LOGIN</h2>
+                <form action="">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button class="login"><a href="supervisor.html">LOGIN</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

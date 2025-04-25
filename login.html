@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } 
+        body {
+            background-color: white;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 81, 0, 0.315);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.671);
+            z-index: 1000;
+            font-style: italic;
+        }
+
+        .double-color-text {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(to right, rgba(0, 102, 128, 0.514), blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .logout {
+            float: right;
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            padding: 12px 30px;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            transition: 0.3s;
+        }
+
+        .logout:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        .login-section {
+            margin-top: 220px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px;
+            flex-wrap: wrap;
+
+        }
+
+        .login-card {
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(255, 81, 0, 0.315); /* Added background color */
+}
+
+
+        .login-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .login-card h2 {
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .login-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-card:hover {
+    background-color: rgba(255, 81, 0, 0.5); /* Darken the background color */
+    transform: scale(1.05); /* Slightly enlarge the container on hover */
+}
+
+        img {
+             width: 100px; /* Set a fixed width */
+             height: 150px; /* Set a fixed height */
+             object-fit: cover; /* Ensures the image maintains aspect ratio and doesn't stretch */
+        }
+      
+
+       
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .login-section {
+                justify-content: center;
+            }
+
+            .login-card {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 0;
+            }
+
+            .double-color-text {
+                font-size: 40px;
+            }
+
+            .logout {
+                font-size: 14px;
+                padding: 8px 20px;
+                margin-right: 10px;
+            }
+
+            .login-section {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .login-card {
+                width: 80%;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 0;
+            }
+
+            .double-color-text {
+                font-size: 30px;
+            }
+
+            .logout {
+                font-size: 12px;
+                padding: 6px 15px;
+            }
+
+            .login-section {
+                padding: 10px;
+            }
+
+            .login-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .login-card h2 {
+                font-size: 18px;
+            }
+
+            .login-card a {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+        
+        
+}
+
+    </style>
+</head>
+<body>
+    <!-- Fixed Heading -->
+    <div class="header">
+        <h1 class="double-color-text">AI DRIVEN CENTRALIZED DASHBOARD</h1>
+        <button class="logout"><a href="#">Logout</a></button>
+    </div>
+
+    <!-- Login Sections -->
+    <div class="login-section">
+        <div class="login-card">
+            <img src="image/admin.png" alt="Admin Login">
+            <h2>Admin Login</h2>
+            <a href="adminlogin.html">Login</a>
+        </div>
+        <div class="login-card">
+            <img src="image/supervisor.png" alt="Supervisor Login">
+            <h2>Supervisor Login</h2>
+            <a href="supervisorlogin.html">Login</a>
+        </div>
+        <div class="login-card">
+            <img src="image/citizen.png" alt="Citizen Login">
+            <h2>Citizen Login</h2>
+            <a href="citizenlogin.html">Login</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor</title>
+
+    <!-- Include FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 81, 0, 0.315);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.671);
+            z-index: 1000;
+            font-style: italic;
+        }
+
+        .double-color-text {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(to right, rgba(0, 102, 128, 0.514), blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .logout {
+            float: right;
+            padding: 12px 30px;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s;
+            margin-right: 20px;
+        }
+
+        .logout:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: rgb(255, 255, 255);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            
+        }
+
+        .dashboard-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 120px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard {
+            font-size: 36px;
+            font-weight: bold;
+            color: brown;
+            margin-right: 20px;
+        }
+
+        .create-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff5733, #3498db);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .create-button:hover {
+            background: linear-gradient(to right, #3498db, #ff5733);
+        }
+
+        table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            background-color: white;
+            color: black;
+        }
+
+        th {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .action-icons span {
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .view-icon:hover,
+        .create-icon:hover,
+        .delete-icon:hover {
+            color: #ff5733;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .double-color-text {
+                font-size: 40px;
+            }
+
+            .dashboard-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dashboard {
+                margin: 0 0 10px 0;
+            }
+
+            .logout {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            table {
+                width: 95%;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .double-color-text {
+                font-size: 32px;
+            }
+
+            .create-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            th,
+            td {
+                padding: 6px;
+            }
+
+            table {
+                display: block;
+                
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .double-color-text {
+                font-size: 24px;
+            }
+
+            .logout {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .dashboard {
+                font-size: 24px;
+            }
+
+            .create-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            th,
+            td {
+                font-size: 12px;
+                padding: 5px;
+            }
+            
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Heading -->
+    <div class="header">
+        <h1 class="double-color-text">AI DRIVEN CENTRALIZED DASHBOARD</h1>
+        <button class="logout"><a href="dashboard.html" style="color:white;text-decoration:none;">Logout</a></button>
+    </div>
+
+    <!-- Dashboard Title with Buttons -->
+    <div class="dashboard-container">
+        <h2 class="dashboard">SUPERVISOR</h2>
+        <!-- <button class="create-button"><a href="supervisorcreate.html">Create Supervisor</a></button> -->
+    </div>
+
+    <!-- Table Section -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Department ID</th>
+                <th>Budget</th>
+                <th>Progress</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable">
+            <!-- Rows will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        const students = [
+            { id: 1, name: 'HR', description: 'Handles recruitment', status: 'Active', departmentId: 'D001', budget: '$5000', progress: '80%' },
+            { id: 2, name: 'IT', description: 'Manages IT infrastructure', status: 'Active', departmentId: 'D002', budget: '$12000', progress: '65%' },
+            { id: 3, name: 'Finance', description: 'Manages company finances', status: 'Inactive', departmentId: 'D003', budget: '$8000', progress: '50%' },
+            { id: 4, name: 'Marketing', description: 'Promotes business', status: 'Active', departmentId: 'D004', budget: '$10000', progress: '90%' }
+        ];
+
+        const populateTable = () => {
+            const tableBody = document.getElementById('studentTable');
+
+            students.forEach(student => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.description}</td>
+                    <td>${student.status}</td>
+                    <td>${student.departmentId}</td>
+                    <td>${student.budget}</td>
+                    <td>${student.progress}</td>
+                    <td>
+                        <div class="action-icons">
+                            <span class="icon view-icon"><i class="fas fa-eye"></i></span>
+                            <span class="icon create-icon"><i class="fas fa-edit"></i></span>
+                        </div>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+
+                row.querySelector('.view-icon').addEventListener('click', () => {
+                    window.location.href = "supervisorview .html";
+                });
+
+                row.querySelector('.create-icon').addEventListener('click', () => {
+                    window.location.href = "supervisorupdate .html";
+                });
+            });
+        };
+
+        populateTable();
+    </script>
+</body>
+
+</html>
